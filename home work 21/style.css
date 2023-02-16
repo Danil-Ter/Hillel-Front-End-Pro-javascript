@@ -1,4 +1,4 @@
-#ul {
+.ul {
   width: 250px;
   text-align: center;
 }
@@ -10,6 +10,7 @@
   list-style: none;
   padding-top: 5px;
   padding-bottom: 5px;
+  user-select: none;
 }
 .list {
   border: 2px solid red;
