@@ -13,7 +13,7 @@ export const Validator = {
       message: "The field should has a integer",
       errorType: "number",
     },
-    length(min, max) {
+    rangeLength(min, max) {
       return {
         validate: (value) => value.length <= max && value.length >= min,
         message: `Username must be between ${min} and ${max} characters`,
@@ -35,13 +35,15 @@ export const Validator = {
       validate: (value) =>
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])\S{8,}$/.test(value),
       message:
-        "Password must have at least 8 characters that include at least 1 lowercase character, 1 uppercase character, 1 number, and 1 special character in (!@#$%^&*)",
+        "Password must include at least 1 lowercase character, 1 uppercase character, 1 number, and 1 special character in (!@#$%^&*)",
       errorType: "password",
     },
-    isPasswordMatch: {
-      validate: (value) => value === form.elements["password"].value,
-      message: "Plese enter the password again",
-      errorType: "password_match",
+    isPasswordConfirmed: (passwordName) => {
+      return {
+        validate: (value) => value === form.elements[passwordName].value,
+        message: "password does not match",
+        errorType: "password_match",
+      };
     },
   },
 
@@ -89,5 +91,5 @@ export const Validator = {
   },
 };
 
-export const { isNotEmpty, isEmail, length, isValidPassword, isPasswordMatch } =
+export const { isNotEmpty, isEmail, rangeLength, isValidPassword, isPasswordConfirmed } =
   Validator.validators;

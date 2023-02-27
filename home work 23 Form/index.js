@@ -1,10 +1,10 @@
-import { Validator, isNotEmpty, isEmail, length, isValidPassword, isPasswordMatch } from "./src/js/validator.js";
+import { Validator, isNotEmpty, isEmail, rangeLength, isValidPassword, isPasswordConfirmed } from "./src/js/validator.js";
 
 const humanFormConfigs = {
-  username: [isNotEmpty, length(3, 25)],
+  username: [isNotEmpty, rangeLength(3, 25)],
   email: [isNotEmpty, isEmail()],
   password: [isNotEmpty, isValidPassword],
-  password2: [isNotEmpty, isPasswordMatch],
+  confirm_password: [isNotEmpty, isPasswordConfirmed("password")],
 };
 
 const init = function () {
@@ -41,31 +41,22 @@ const init = function () {
   };
 
   form.addEventListener("input", function (event) {
-    let target = event.target;
-    if (!humanFormConfigs[target.name]) return;
-
-    let isValid = Validator.validate(
-      { [target.name]: humanFormConfigs[target.name] },
-      form
-    );
-    let errors = Object.values(
-      Validator.getErrors(form.name)?.[target.name] || {}
-    );
-    let messageError = form.querySelector(`[data-for="${target.name}"]`);
-
-    if (!isValid) {
-      messageError.innerHTML = errors
-        .map((message) => `<span>${message}</span>`)
-        .join("<br>");
-
-      target.style.borderColor = "red";
-      target.style.backgroundColor = "white";
-    } else {
-      messageError.innerHTML = "";
-      target.style.borderColor = "green";
-      target.style.background = "white";
-    }
+    const { target } = event;
+    const config = humanFormConfigs[target.name];
+  
+    if (!config) return;
+  
+    const isValid = Validator.validate({ [target.name]: config }, form);
+    const errors = Validator.getErrors(form.name)?.[target.name] ?? {};
+    const messageError = form.querySelector(`[data-for="${target.name}"]`);
+  
+    messageError.innerHTML = Object.values(errors)
+      .map((message) => `<span>${message}</span>`)
+      .join("<br>");
+  
+    target.style.borderColor = isValid ? "green" : "red";
+    target.style.backgroundColor = "white";
   });
-};
+}
 
 document.addEventListener("DOMContentLoaded", init);
