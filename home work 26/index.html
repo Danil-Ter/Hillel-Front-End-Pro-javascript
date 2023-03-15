@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Weather App</title>
+  </head>
+  <body class="body">
+    <div class="container">
+      <div class="sidebar animate__animated animate__fadeInLeft">
+        <h2>Weather App</h2>
+        <p id="datetime"></p>
+        <button type="button" id="location-btn">Get Current Location</button>
+        <input type="text" id="city-input" placeholder="Enter a city name" />
+        <ul id="city-list">
+          <li><a href="#" data-city="New York">New York</a></li>
+          <li><a href="#" data-city="London">London</a></li>
+          <li><a href="#" data-city="Tokyo">Tokyo</a></li>
+          <li><a href="#" data-city="Kyiv">Kyiv</a></li>
+          <li><a href="#" data-city="Odesa">Odesa</a></li>
+        </ul>
+      </div>
+      <div class="weather">
+        <div class="weather-block animate__animated animate__zoomIn">
+          <h2 id="city-name"></h2>
+          <img id="icon" />
+          <p id="description"></p>
+          <div class="weather-info">
+            <p id="temperature"></p>
+            <p id="humidity"></p>
+            <p id="wind-speed"></p>
+            <p id="pressure"></p>
+            <p id="visibility"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
