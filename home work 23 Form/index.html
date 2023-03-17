@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@codolog/form@1.0.0/dist/form.min.css" />
+    <link rel="stylesheet" href="./src/style/main.css" />
+    <script type="module" src="./index.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="form-container">
+            <form id="form" name="human">
+                <h1>Sing Up</h1>
+                <div class="input-control">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form" name="username" placeholder="enter username ">
+                    <span class="message form" data-for="username"></span>
+                </div>
+                <div class="input-control">
+                    <label for="email">Email:</label>
+                    <input type="text" class="form" name="email" placeholder="enter email">
+                    <span class="message form" data-for="email"></span>
+                </div>
+                <div class="input-control">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form" name="password" placeholder="enter password">
+                    <span class="message form" data-for="password"></span>
+                </div>
+                <div class="input-control">
+                    <label for="confirm_password">Confir password: </label>
+                    <input type="password" class="form" name="confirm_password" placeholder="Renter your password">
+                    <span class="message form" data-for="confirm_password"></span>
+                </div>
+                <button class="form success btn-send" type="submit">Sign Up</button>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>
