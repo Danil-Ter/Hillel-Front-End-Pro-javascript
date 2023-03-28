@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.body {
+  background: linear-gradient(to bottom right, #214fe7, #5998d8);
+  color: white;
+  font-family: "Montserrat", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+.container {
+  display: flex;
+  height: 100vh;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.sidebar {
+  flex-basis: 300px;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 75px;
+  color: #fff;
+}
+
+.sidebar button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 16px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.sidebar button:hover {
+  background-color: #f19137;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 5px;
+  background-color: #e4e0e0;
+  color: #000;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  transition: 0.5s;
+}
+
+.sidebar a:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.sidebar input[type="text"] {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.weather {
+  background: rgba(24, 24, 27, 0.8);
+  padding: 25px;
+  display: flex;
+  color: white;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: hidden;
+  padding-top: 100px;
+}
+
+.weather-block {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  padding: 60px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.weather-info {
+  text-align: center;
+}
+
+.weather h2 {
+  margin-bottom: 25px;
+  color: #ffffff;
+}
+
+.weather p {
+  font-size: 25px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+#datetime {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #ff9900;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .sidebar {
+    flex-basis: auto;
+    padding: 10px;
+  }
+
+  .sidebar h2 {
+    margin-bottom: 50px;
+    font-size: 24px;
+  }
+
+  .sidebar button {
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+
+  .sidebar ul {
+    margin-bottom: 20px;
+  }
+
+  .sidebar input[type="text"] {
+    margin-bottom: 10px;
+  }
+
+  .weather-block {
+    padding: 20px;
+  }
+
+  .weather {
+    padding-top: 20px;
+  }
+
+  .weather p {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+}
